@@ -1,0 +1,27 @@
+.canva_light {
+    width: 70px;
+}
+
+.submenu-hide {
+    display: none;
+}
+  
+.submenu-show:hover .submenu-hide {
+    display: block;
+}
+
+.submenu {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.my-bg {
+    background-color: white;
+    width: 150px;
+    border-radius: 10px;
+}
+
+
+
+/***********************************************************************/
