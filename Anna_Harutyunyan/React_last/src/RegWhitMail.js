@@ -16,7 +16,7 @@ class RegWhitMail extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
   
-  onSubmit(event){
+  onSubmit(event) {
     let mail = document.getElementById('mail').value
     let confrim_mail = document.getElementById('c_mail').value
     if(mail !== confrim_mail) {
@@ -57,12 +57,11 @@ class RegWhitMail extends Component {
           <input type="password" name="password" placeholder="Passward" value={this.state.password}
                       onChange={this.onChangePassword} className="form-control-file border p-3 rounded-bottom"/>        
           <div className="border p-4 mt-1 mb-2 rounded">
-            <input type="checkbox" className=""  />            
+            <input type="checkbox" />            
             I'm not a robot
           </div>
           <p>
-            <input type="submit" value="Sign up" className="p-2 btn btn-success w-100" 
-                   onClick={this.confirmMail} />
+            <input type="submit" value="Sign up" className="p-2 btn btn-success w-100" />
           </p>
         </form>
       </div>

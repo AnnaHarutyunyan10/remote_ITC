@@ -1,34 +1,74 @@
 import React, { Component } from "react";
-import "./App.css";
-import Header from "./header";
-import MainPhoto from "./mainPhoto";
-import Gallery from "./gallery";
-import Registration from "./registration";
-import Smilik from "./smilik";
-import Search from "./search";
+import { BrowserRouter, Route } from "react-router-dom";
+import SecondPage from "./secondPage";
+import Default from "./default";
+import PageSmile from "./page_Smile";
 
 class App extends Component {
 
   render() { 
-    
-    return (
-      <div className="background">
-        <Header />
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-sm-8">
-              <MainPhoto />
-              <Gallery />
-            </div>
-            <div className="col-sm-4">
-              <Registration />  
-              <Smilik />    
-              <Search placeholder="Search 50,000 templates" />  
+    const keys = [
+      ['School', SecondPage],
+      ['Photo', SecondPage],
+      ['Campaign', SecondPage],
+      ['Motivational', SecondPage],
+      ['Black And White', SecondPage],
+      ['Event', SecondPage],
+      ['Advertising', SecondPage],
+      ['Schools', SecondPage],
+      ['Photo1', SecondPage],
+      ['Quote', SecondPage],
+      ['Campaigns', SecondPage],
+      ['Motivationals', SecondPage],
+      ['Black And White1', SecondPage],
+      ['Art & Design', SecondPage],
+      ['Fashion', SecondPage],
+      ['Band', SecondPage],
+      ['Computer', SecondPage],
+      ['Food & Drink', SecondPage],
+      ['Education', SecondPage],
+      ['Sports', SecondPage],
+      ['Restaurant', SecondPage],
+      ['Cafe', SecondPage],
+      ['Creative', SecondPage],
+      ['Simple', SecondPage],
+      ['Education1', SecondPage],
+      ['Business', SecondPage],
+      ['Events', SecondPage],
+      ['Marketing', SecondPage],
+      ['Promotional', SecondPage],
+      ['Birthday', SecondPage],
+      ['Thank You', SecondPage],
+      ['Invitation', SecondPage],
+      ['Greeting', SecondPage],
+      ['Photo2', SecondPage],
+      ['Education2', SecondPage],
+      ['Process', SecondPage],
+      ['Photography', SecondPage],
+      ['Yoga', SecondPage],
+      ['Music', SecondPage],
+      ['DJ', SecondPage],
+      ['Professional', SecondPage],
+      ['Modern', SecondPage],
+      ['Simples', SecondPage],
+      ['Mood Boards', SecondPage],
+      ['Fashions', SecondPage],
+      ['Travel', SecondPage],
+      ['Art', SecondPage],
+      ['Birthdays', SecondPage],
+      ['Cool', SecondPage],
+      ['Pet', SecondPage]
+    ];
 
-            </div>
-          </div>
-        </div>        
-      </div>
+    return (
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={Default} />         
+          {keys.map((i) => 
+            {return <Route path={`/${i[0]}`} component={i[1]} />  })} 
+            <Route exact path="/smilik" component={PageSmile} />
+        </div>
+      </BrowserRouter>
     );
   }
 }

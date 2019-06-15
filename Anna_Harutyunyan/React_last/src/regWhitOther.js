@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import RegWhitMail from "./RegWhitMail";
-//import "font-awesome/css/font-awesome.css";
+import LoginWhitGoogle from "./CLIENT/google";
+import LoginWhitFacebook from "./CLIENT/facebook";
 
 function RegWhitOther(props) {
-  
+
     return (
         <div>               
             <div>
-                <input type="submit" value="Sign up whit Facebook" className="p-2 btn btn-primary w-100 my-1" />
+                <LoginWhitFacebook />
             </div>
             <div>
-                <input type="submit" value="Sign up whit Google" className="p-2 btn btn-danger w-100 my-1" />
+                <LoginWhitGoogle />
             </div>
             <div className="text-muted text-center"><i> or </i></div>
             <div> 

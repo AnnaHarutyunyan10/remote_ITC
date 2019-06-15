@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import './search.css';
 
 class Search extends Component {
 
@@ -41,8 +42,8 @@ class Search extends Component {
     }
     return (
       <div>
-        { suggestions.map((item) => <a href="#" className="">
-                                      <div  className="text-dark p-3 bg-light shadow-sm " 
+        { suggestions.map((item) => <a href="#" className="text-decor-hover">
+                                      <div  className="my-search-hover text-dark p-3 bg-light shadow-sm " 
                                         onClick={() => this.suggestionSelected(item)} 
                                         key={item}>{item}
                                       </div>
@@ -63,11 +64,11 @@ class Search extends Component {
     const { text } = this.state;
   return (
      <div>      
-      <input type="text" value={text} onChange={ this.onTextChanged } 
+      <input type="text" value={ text } onChange={ this.onTextChanged } 
              className="form-control-file border p-3 rounded mt-4 shadow-sm"
-             placeholder={this.props.placeholder}
+             placeholder={ this.props.placeholder }
       />
-      {this.renderSuggestions()}
+      { this.renderSuggestions() }
      </div>
     );
   }

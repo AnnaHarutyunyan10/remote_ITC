@@ -23,7 +23,6 @@ class Registration extends Component {
     }  
     
     render() {
-
         const show = this.state.show;
         let button;
 
@@ -39,8 +38,8 @@ class Registration extends Component {
                  onClick={this.loginWhitMail}
             />
             <div className="bg-light p-3 rounded shadow-sm">     
-            <p className="text-center">New to Canva?</p>
-            <p className="text-center">Sign up to use this templete</p> 
+            <p className="text-center text-dark h4 mt-4">New to Canva?</p>
+            <p className="text-center text-dark h4 mb-3">Sign up to use this templete</p> 
                 {button}            
             <div className="m-3 my-text-heigth ">
                 <p className="text-muted">By singing up you agree whit Canvas</p>
