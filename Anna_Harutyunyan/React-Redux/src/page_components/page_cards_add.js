@@ -3,8 +3,8 @@ import Header from '../components/header';
 import FooterTop from '../components/footer-top';
 import FooterMiddle from '../components/footer-middle';
 import FooterButtom from '../components/footer-buttom';
-import Add from '.././add';
-import '.././styles/header.css'; 
+import AddCard from '.././components/addCard';
+import '.././styles/header.scss'; 
 
 class PageCardsAdd extends Component {
  
@@ -19,7 +19,7 @@ class PageCardsAdd extends Component {
                         backgroundNavBar={ buttonStyle.bg }
                         btn_show_hide="d-none" 
                 />
-                <Add />
+                <AddCard />
                 <FooterTop />
                 <FooterMiddle />
                 <FooterButtom />

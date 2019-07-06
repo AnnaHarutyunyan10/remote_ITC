@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import FileBase64 from './components/react-file-base-64.js';
+import FileBase64 from './react-file-base-64.js';
 import  moment  from 'moment';
-import addCardFoto from './foto/page_cards_add_foto/foto_for_addCard.png';
+import addCardFoto from '.././foto/page_cards_add_foto/foto_for_addCard.png';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 
-class Add extends Component {
+import { ADD_CARD_ACTION } from '.././actions/card_action';
+
+import { Container, Row, Col, Button } from 'react-bootstrap';
+
+class AddCard extends Component {
 
     constructor() {
         super()
@@ -33,44 +37,35 @@ class Add extends Component {
         console.log(this.props.testStore); 
         //console.log(this.state.files.base64);
         return (
-            <div className="m-4">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-5">
+            <React.Fragment>
+                <Container fluid className="m-4">
+                    <Row>
+                        <Col md={5}>
                             <h2 className="mb-3">Starbucks Menu</h2>
                             <img src={ addCardFoto } alt="addCardFoto" className="w-100" />
-                        </div>
-                        <div className="col-md-6 ml-5">
+                        </Col>
+                        <Col md={6} className="ml-5">
                             <h2 className="mb-3">Choose your espresso, love your drink</h2>
                             <p className="small">Enjoy all your favorites with Starbucks® smooth Blonde espresso or bold signature espresso.</p>
                             <input type="text" ref={(input) => this.cardTitle = input} placeholder="Enter Title" className="form-control mb-2" />                           
-                            <div>
                                 <FileBase64
                                     ref={() => this.getImage = this.state.files.map((i) => i.base64) }
                                     multiple={ true }
                                     onDone={ this.getFiles.bind(this) } 
                                 />
-                            </div>
                             <input type="text" ref={(input) => this.cardDescription = input} placeholder="Enter Description" className="form-control mb-2" />
                             <input type="text" ref={(input) => this.cardButton = input} placeholder="Enter button value" className="form-control mb-2" ></input>
-                            <button onClick={this.addCard.bind(this)} className="btn btn-secondary btn-lg btn-block" >ADD CARD</button>
-                        </div>
-                    </div> 
-                    <div className="row my-4 mt-5" >
+                            <Button variant="secondary" onClick={this.addCard.bind(this)} size="lg" block>ADD CARD</Button>
+                        </Col>
+                    </Row> 
+                    <Row className="my-4 mt-5">
                         { this.props.testStore.map((card, index) => 
-                            <div className="col-md-4" >
+                            <Col md={4}>
                                 <div>
                                     <NavLink to="">
                                         <p key={index} className="h5 font-weight-bold text-success" >{card.title}</p>
                                     </NavLink>
-                                    <p className="" key={index}>
-
-                                        {/* es vor bacem u sranov ashxatacnem eli kashxati u 
-                                            nuyn nkare kdni u nkare chi poxieli  */}
-                                        {/*{ this.state.files.map((file, i) => {
-                                            return <img key={i} a={card.show} src={file.base64} className=" card-img-top" />
-                                        }) } */}
-
+                                    <p key={index}>
                                         <img src={card.upload_image} className="card-img-top" alt="cards" />
                                     </p>
                                     <p key={index} className="small" >{card.descripton}</p>
@@ -79,23 +74,23 @@ class Add extends Component {
                                         <p key={index} className="text-success small " >{card.button}</p>
                                     </NavLink>
                                 </div>  
-                            </div>                             
+                            </Col>                             
                         )}
-                    </div>
-                </div>
-            </div>
+                    </Row>
+                </Container>
+            </React.Fragment>
         );
     }
 }
 
 export default connect(
     state => ({
-        testStore: state
+        testStore: state.img
     }),
     dispatch => ({
         onAddCard: (cardTitle, cardImage, cardDescription, cardButton) => {            
             dispatch({
-                type: 'Add card', 
+                type: ADD_CARD_ACTION, 
                 title: cardTitle, 
                 image: cardImage,
                 descripton: cardDescription,
@@ -104,4 +99,4 @@ export default connect(
             });          
         }
     })
-)(Add);
+)(AddCard);

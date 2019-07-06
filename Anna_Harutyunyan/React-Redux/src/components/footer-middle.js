@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import '.././styles/footer.css'
+import '.././styles/footer.scss'
+
+import { Container, Row, Col } from 'react-bootstrap';
  
 class FooterMiddle extends Component {
 
@@ -56,10 +58,10 @@ class FooterMiddle extends Component {
             }
         ];
         return (
-            <div className="container-fluid m-4 mt-5">
-                <div className="row">
+            <Container fluid className="m-4 mt-5">
+                <Row>
                     {
-                        footerMenu.map((i) => <div className="col-md-2">
+                        footerMenu.map((i) => <Col md={2}>
                                             <p className="my-footer-hover font-weight-bold">
                                                 {i.footerItemTitle}
                                             </p>
@@ -68,10 +70,10 @@ class FooterMiddle extends Component {
                                                     {ii}
                                                 </p>)}
                                             </p>
-                                        </div>)
+                                        </Col>)
                     }
-                </div>
-            </div> 
+                </Row>
+            </Container> 
         );
     }
 }

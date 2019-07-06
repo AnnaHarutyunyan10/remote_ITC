@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '.././styles/starbook_foto.css';
+import '.././styles/starbook_foto.scss';
  
 class StarbookFirstPage extends Component {
  

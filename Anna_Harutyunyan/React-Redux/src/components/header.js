@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import '.././styles/header.css';
+import '.././styles/header.scss';
 import icon from '.././foto/logo/icon.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+
+import { Container, Row, Col } from 'react-bootstrap';
 
 class Header extends Component {
    
@@ -116,43 +118,66 @@ class Header extends Component {
 
         return (
             <div className={ this.props.backgroundNavBar }> 
-                <div className="row">
+                <Row>
                     <div className="p-2 bg-success col-sm-9"></div>
                     <a href="#" className="bg-dark p-2 text-white col-sm-3">Exciting updates to Starbucks® Rewards</a>
-                </div>    
-                <nav className="navbar navbar-expand-md navbar-default navbar-light" >
-                    <NavLink to="/addCard">
-                        <img src={ icon } className=" logo rounded-circle " alt="header_icon" />                   
-                    </NavLink>
-                    { this.props.search }
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul className="navbar-nav">
-                            {
-                                navItems.map((i) => (
-                                    <div className="submenu-show">
-                                        <p className="my-menu-bg nav-item d-inline mx-3" key={i}>{i.menu}</p>
-                                        <div className="submenu-hide my-bg px-5 py-4">
-                                            <p className="font-weight-bold px-2 text-light small my-header-menu-item-hover w-25" key={i}>{i.subMenu.subTitle}</p>
-                                            {i.subMenu.subBody.map((ii) => <li><a  className="my-header-menu-item-hover submenu text-light small" href="#" key={ii}>{ii}</a></li>)}
+                </Row>  
+                <Container fluid>
+                    <nav className="navbar navbar-expand-md navbar-default navbar-light" >                   
+                        <Row>
+                            <Col md={1}>
+                                <NavLink to="/addCard">
+                                    <img src={ icon } className="logo rounded-circle " alt="header_icon" />                   
+                                </NavLink>
+                            </Col>
+                            <Col md={11}>
+                                <Row>
+                                    <Col md={12}>
+                                        <ul class="navbar-nav mr-auto">
+                                            <li class="nav-item">
+                                                <NavLink to="" className="nav-link border-right">Find a Srore</NavLink>
+                                            </li>
+                                            <li class="nav-item">
+                                                <NavLink to="/login" className="nav-link ">Sign In</NavLink>
+                                            </li>
+                                            <li class="nav-item">
+                                                <NavLink to="/registere" className="nav-link"></NavLink>
+                                            </li>
+                                        </ul>
+                                    </Col>
+                                    <Col md={12}>
+                                        { this.props.search }
+                                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                                            <span className="navbar-toggler-icon"></span>
+                                        </button>
+                                        <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                                            <ul className="navbar-nav">
+                                                {
+                                                    navItems.map((i) => (
+                                                        <div className="submenu-show">
+                                                            <p className="my-menu-bg nav-item d-inline mx-2 mr-4" key={i}>{i.menu}</p>
+                                                            <div className="submenu-hide my-bg px-5 py-4">
+                                                                <p className="font-weight-bold px-2 text-light small my-header-menu-item-hover w-25" key={i}>{i.subMenu.subTitle}</p>
+                                                                {i.subMenu.subBody.map((ii) => <li><a  className="my-header-menu-item-hover submenu text-light small" href="#" key={ii}>{ii}</a></li>)}
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                }
+                                                <li className="nav-item">
+                                                    <button className={this.props.btn_show_hide}>Log in</button>
+                                                    <button type="button" 
+                                                            className={ this.props.btnStyles }>
+                                                            Sign Up
+                                                    </button>
+                                                </li>                               
+                                            </ul>
                                         </div>
-                                    </div>
-                                ))
-                            }
-                            <li className="nav-item">
-                                <button className={this.props.btn_show_hide}>Log in</button>
-                                <button type="button" 
-                                    //className="btn navbar-btn btn-light p-2"
-                                    className={ this.props.btnStyles }
-                                    >
-                                    Sign Up
-                                </button>
-                            </li>                               
-                        </ul>
-                    </div> 
-                </nav>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row> 
+                    </nav> 
+                </Container>
            </div>
         );
     }

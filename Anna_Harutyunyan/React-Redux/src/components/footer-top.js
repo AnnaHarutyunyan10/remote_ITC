@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
-import '.././styles/footer.css'
+import '.././styles/footer.scss';
+
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
  
 class FooterTop extends Component {
 
@@ -10,10 +12,10 @@ class FooterTop extends Component {
 
     render () { 
         return (
-            <footer className="my-footer-top-bg p-4 pl-5">           
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-md-4 col-sm-6 text-md-left">
+            <React.Fragment> 
+                <Container fluid className="my-footer-top-bg p-4 pl-5">
+                    <Row className="justify-content-between">
+                        <Col md={4} className="text-md-left">
                             <ul className="list-unstyled list-inline">
                                 <li className="list-inline-item"><a href="https://web.facebook.com/Starbucks/" className="btn-floating btn-sm btn-fb mx-1 text-dark"><i className="fa fa-facebook my-icon-hover"></i></a></li>
                                 <li className="list-inline-item"><a href="https://twitter.com/starbucks" className="btn-floating btn-sm btn-tw mx-1 text-dark"><i className="fa fa-twitter my-icon-hover"> </i></a></li>
@@ -21,23 +23,18 @@ class FooterTop extends Component {
                                 <li className="list-inline-item"><a href="https://www.instagram.com/starbucks/" className="btn-floating btn-sm btn-li mx-1 text-dark"><i className="fa fa-linkedin my-icon-hover"> </i></a></li>
                                 <li className="list-inline-item"><a href="https://www.pinterest.com/starbucks/" className="btn-floating btn-sm btn-dribbble mx-1 text-dark"><i className="fa fa-dribbble my-icon-hover"> </i></a></li>
                             </ul> 
-                        </div>
-                        <div class="col-md-8 col-sm-6 text-dark">  
-                            <p>Join our email list</p>                                        
-                            <form className="form-inline" action="/action_page.php">                                
-                                <input type="email" 
-                                       className="form-control w-50 mr-3" 
-                                       placeholder="Email address"  required />
-                                <input type="text" 
-                                       className="form-control w-25 mr-3" 
-                                       placeholder="Zip code"  required />
-                                <input type="button" 
-                                       onClick={this.onClick}
-                                       className="btn-dark rounded text-white border-0 px-3 py-2" 
-                                       value="GET STARTED" />
-                            </form>  
+                        </Col>
+                        <Col md={8} className="text-dark"> 
+                            <Form.Label>Join our email list</Form.Label>
+                            <Form className="form-inline">   
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Control type="email" placeholder="Email address" className="form-control w-50 mr-1"  />
+                                    <Form.Control type="email" placeholder="Zip code" className="form-control w-25 mr-1" />                             
+                                    <Button variant="secondary" onClick={this.onClick}>GET STARTED</Button>
+                                </Form.Group> 
+                            </Form>
                             <p className="mt-3">
-                                By clicking "GET STARTED" I agree to receive news, promotions, information, and offers from Starbucks. See our
+                                By clicking "GET STARTED" I agree to receive news, promotions, information, and offers from Starbucks. See our 
                                 <span>
                                     <a href="#" 
                                        className="font-weight-bold text-dark border border-top-0 border-right-0 border-left-0  border-dark text-decoration-none " >
@@ -47,14 +44,14 @@ class FooterTop extends Component {
                                 <span>
                                     <a href="#" 
                                        className="font-weight-bold text-dark border border-top-0 border-right-0 border-left-0  border-dark text-decoration-none " >
-                                        Customer Service.
+                                       Customer Service.
                                     </a>
                                 </span>
-                            </p>                              
-                        </div>
-                    </div>
-                </div>
-            </footer>
+                            </p>  
+                        </Col>
+                    </Row>
+                </Container>
+            </React.Fragment>
         );
     }
 }
