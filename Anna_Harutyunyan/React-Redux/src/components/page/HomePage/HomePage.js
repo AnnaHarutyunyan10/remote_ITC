@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import { userActions } from '../.././actions/user.actions';
-
-import '../.././styles/LoginPage.scss'
-
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { userActions } from '../../.././actions/user.actions';
+import '../../.././styles/LoginPage.scss'
 
 class HomePage extends Component {
     

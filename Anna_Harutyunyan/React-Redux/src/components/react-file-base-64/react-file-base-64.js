@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ErrorBoundary from '.././errorBoundary/errorBoundary';
 
-class FileBase64 extends React.Component {
+class FileBase64 extends Component {
 
     constructor(props) {
         super(props);
@@ -36,12 +37,14 @@ class FileBase64 extends React.Component {
 
     render() {
         return (
-            <input
-                type="file"
-                onChange={ this.handleChange.bind(this) }
-                multiple={ this.props.multiple } 
-                className="form-control-file border mb-2 rounded py-1"
-            />
+            <ErrorBoundary>
+                <input
+                    type="file"
+                    onChange={ this.handleChange.bind(this) }
+                    multiple={ this.props.multiple } 
+                    className="form-control-file border mb-2 rounded py-1"
+                />
+            </ErrorBoundary>
         );
     }
 }

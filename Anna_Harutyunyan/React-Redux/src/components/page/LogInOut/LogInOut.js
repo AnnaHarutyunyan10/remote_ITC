@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import { history } from '../../helpers';
-import { alertActions } from '../../actions';
-import { PrivateRoute } from '../PrivateRoute';
-import { HomePage } from '../HomePage';
-import { LoginPage } from '../LoginPage';
-import { RegisterPage } from '../RegisterPage';
+import { history } from '../../../helpers';
+import { alertActions } from '../../../actions';
+import { LoginPage } from '../LoginPage/LoginPage';
 
 class LogInOut extends Component {
 
@@ -30,9 +26,7 @@ class LogInOut extends Component {
                 }
                 <Router history={history}>
                     <div>
-                        {/*<PrivateRoute exact path="/" component={HomePage} />*/}
                         <Route path="/login" component={LoginPage} />
-                        {/*<Route path="/register" component={RegisterPage} />*/}
                     </div>
                 </Router>
             </React.Fragment>

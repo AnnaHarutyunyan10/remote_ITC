@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import FileBase64 from './react-file-base-64.js';
-import  moment  from 'moment';
-import addCardFoto from '.././foto/page_cards_add_foto/foto_for_addCard.png';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom';
-
-import { ADD_CARD_ACTION } from '.././actions/card_action';
-
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import  moment  from 'moment';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom';
+import addCardFoto from '../.././assets/page_cards_add_foto/foto_for_addCard.png';
+import FileBase64 from '.././react-file-base-64/react-file-base-64.js';
+import { ADD_CARD_ACTION } from '../../actions/card_action.js';
 
 class AddCard extends Component {
 
@@ -20,13 +18,11 @@ class AddCard extends Component {
  
     getFiles(files){
         this.setState({ files: files });
-        //console.log(this.state.files[0].base64);
     }
 
     addCard() {
         console.log('click', this.cardTitle.value);
         console.log('click', this.cardDescription.value);
-        //let cardImage = this.state.files[0].base64;
         this.props.onAddCard(this.cardTitle.value, this.getImage, this.cardDescription.value, this.cardButton.value);
         this.cardTitle.value = '';
         this.cardDescription.value = '';
@@ -35,7 +31,6 @@ class AddCard extends Component {
     
     render () {
         console.log(this.props.testStore); 
-        //console.log(this.state.files.base64);
         return (
             <React.Fragment>
                 <Container fluid className="m-4">

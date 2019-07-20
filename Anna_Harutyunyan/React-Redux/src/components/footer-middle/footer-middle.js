@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import '.././styles/footer.scss'
-
 import { Container, Row, Col } from 'react-bootstrap';
+import '../.././styles/footer.scss'
  
 class FooterMiddle extends Component {
 

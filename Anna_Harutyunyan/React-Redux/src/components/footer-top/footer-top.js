@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
-import '.././styles/footer.scss';
-
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import '../.././styles/footer.scss';
  
 class FooterTop extends Component {
 

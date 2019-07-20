@@ -1,42 +1,38 @@
 import React, { Component } from 'react';
-import Header from '.././components/header';
-import StarbookFirstPage from '.././components/starbook_foto';
+import Header from '../.././header/header';
+import StarbookFirstPage from '../.././starbook_foto/starbook_foto';
 //foto_imports
-import starbookFoto from '.././foto/first_page_foto/starbook_foto.png';
-import coffeeFoto from '.././foto/first_page_foto/coffee.png';
-import iceFoto from '.././foto/first_page_foto/ice.png';
-import frappuccinoFoto from '.././foto/first_page_foto/frappuccino_foto.png';
-import vegetrianFoodFoto from '.././foto/first_page_foto/vegetrian_food.png';
+import starbookFoto from '../../.././assets/first_page_foto/starbook_foto.png';
+import coffeeFoto from '../../.././assets/first_page_foto/coffee.png';
+import iceFoto from '../../.././assets/first_page_foto/ice.png';
+import frappuccinoFoto from '../../.././assets/first_page_foto/frappuccino_foto.png';
+import vegetrianFoodFoto from '../../.././assets/first_page_foto/vegetrian_food.png';
 //footer 
-import FooterTop from '.././components/footer-top';
-import FooterMiddle from '.././components/footer-middle';
-import FooterButtom from '.././components/footer-buttom';
+import FooterTop from '../.././footer-top/footer-top';
+import FooterMiddle from '../.././footer-middle/footer-middle';
+import FooterButtom from '../.././footer-buttom/footer-buttom';
 
 class PageFirst extends Component {
  
     render () {
         const buttonStyle = {
             btn: 'btn navbar-btn btn-light p-2 d-none',
-            bg: 'bg-light',
-            //txt: 'navbar-brand px-3 text-dark',
-            //linkTxt: 'nav-link text-dark px-3',
+            bg: 'bg-light'
         };
-        return (
-            
+        return (            
             <div href="/" className="bg-light">
                 <Header btnStyles={ buttonStyle.btn } 
-                        //navText={ buttonStyle.txt } 
-                        //linkTxt={ buttonStyle.linkTxt } 
                         backgroundNavBar={ buttonStyle.bg }
                         btn_show_hide="d-none" 
+                        cardPage="Click here to go to the page to add cards"
                 />
                 <StarbookFirstPage 
                     starbookFoto={starbookFoto}
                     title="Join Starbucks® Rewards today"
                     text="Just sign up, keep drinking coffee, and you can get Rewards in as few as 2–3 visits."
                     className="btn btn-outline-secondary mt-4 text-white"
-                    btn_text="JOIN NOW"
-                    btn_style="btn btn-outline-secondary text-white"
+                    btn_text="JOIN WHIT HOOK COMPONENT"
+                    btn_style="btn btn-outline-secondary text-white selected"
                     img_stayle="w-100"
                 />
                 <StarbookFirstPage 

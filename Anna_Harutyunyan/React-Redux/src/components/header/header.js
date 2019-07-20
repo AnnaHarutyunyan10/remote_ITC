@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import '.././styles/header.scss';
-import icon from '.././foto/logo/icon.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import '../.././styles/header.scss';
+import icon from '../.././assets/logo/icon.png';
 
 class Header extends Component {
    
@@ -35,7 +34,7 @@ class Header extends Component {
                         'All Handcrafted Teas'
                     ]
                 }
-            }, {
+            },  {
                 menu: 'MENU',
                 subMenu: {
                     subTitle: 'Drinks',
@@ -63,7 +62,7 @@ class Header extends Component {
                         'Starbucks Music'
                     ]
                 }
-            }, {
+            },  {
                 menu: 'SOCIAL IMPACT',
                 subMenu: {
                     subTitle: 'Community',
@@ -94,7 +93,7 @@ class Header extends Component {
                         'Card'
                     ]
                 }
-            }, {
+            },  {
                 menu: 'STORIES',
                 subMenu: {
                     subTitle: 'Coffee',
@@ -119,23 +118,25 @@ class Header extends Component {
         return (
             <div className={ this.props.backgroundNavBar }> 
                 <Row>
-                    <div className="p-2 bg-success col-sm-9"></div>
+                    <NavLink to="/addCard" className="p-2 bg-success col-sm-9 pl-4 text-white">
+                        { this.props.cardPage }
+                    </NavLink>  
                     <a href="#" className="bg-dark p-2 text-white col-sm-3">Exciting updates to Starbucks® Rewards</a>
                 </Row>  
                 <Container fluid>
                     <nav className="navbar navbar-expand-md navbar-default navbar-light" >                   
                         <Row>
                             <Col md={1}>
-                                <NavLink to="/addCard">
+                                <NavLink to="/">
                                     <img src={ icon } className="logo rounded-circle " alt="header_icon" />                   
                                 </NavLink>
                             </Col>
                             <Col md={11}>
                                 <Row>
-                                    <Col md={12}>
+                                    <Col md={12} className={this.props.show_hide_sign_in}>
                                         <ul class="navbar-nav mr-auto">
                                             <li class="nav-item">
-                                                <NavLink to="" className="nav-link border-right">Find a Srore</NavLink>
+                                                <NavLink to="/map" className="nav-link border-right">Find a Srore</NavLink>
                                             </li>
                                             <li class="nav-item">
                                                 <NavLink to="/login" className="nav-link ">Sign In</NavLink>
@@ -164,12 +165,14 @@ class Header extends Component {
                                                     ))
                                                 }
                                                 <li className="nav-item">
-                                                    <button className={this.props.btn_show_hide}>Log in</button>
                                                     <button type="button" 
                                                             className={ this.props.btnStyles }>
                                                             Sign Up
                                                     </button>
-                                                </li>                               
+                                                </li> 
+                                                <NavLink to="/login">
+                                                    <Button className={this.props.btn_show_hide} variant="light">Sign in</Button>   
+                                                </NavLink>                           
                                             </ul>
                                         </div>
                                     </Col>

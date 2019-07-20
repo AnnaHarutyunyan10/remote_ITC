@@ -1,27 +1,33 @@
-import React, { Component } from 'react';
-import PageFirst from './page_components/page-first';
-import PageCardsAdd from './page_components/page_cards_add';
+import React, { Component, Suspense, lazy } from 'react';
 import { Route, BrowserRouter, Router } from "react-router-dom";
-import { PrivateRoute } from './components/PrivateRoute'
-import { LogInOut } from './components/LogInOut/LogInOut';
-import { HomePage } from './components/HomePage';
-import { RegisterPage } from './components/RegisterPage';
-import { LoginPage } from './components/LoginPage';
+import { PrivateRoute } from './components/privateRoute/PrivateRoute';
+import { LogInOut } from './components/page/LogInOut/LogInOut'; 
+import { HomePage } from './components/page/HomePage/HomePage';
+import { RegisterPage } from './components/page/RegisterPage';
 import { history } from './helpers/history';
+
+const PageFirst = lazy(() => import('./components/page/FirstPage/FirstPage'));
+const PageCardsAdd = lazy(() => import('./components/page/CardsPage/CardsPage'));
+const MapPage = lazy(() => import('./components/page/Map/MapPage'));
+const Forms = lazy(() => import('./components/componentsWhitHooks/formWhitHooks/form'));
 
 class App extends Component {
 
     render () {
-        return (
+        return (           
             <Router history={history}>
-                <div className="bg-light">
-                    <Route exact path="/" component={PageFirst} />
-                    <Route path="/addCard" component={PageCardsAdd} />
-                    <PrivateRoute exact path="/home" component={HomePage} />
-                    <Route path="/login" component={LogInOut} />
-                    <Route path="/register" render={() => <RegisterPage />} />                   
-                </div>
-            </Router>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <div className="bg-light">
+                        <Route exact path="/" component={PageFirst} />
+                        <Route path="/addCard" component={PageCardsAdd} />
+                        <PrivateRoute exact path="/home" component={HomePage} />
+                        <Route path="/login" component={LogInOut} />
+                        <Route path="/register" render={() => <RegisterPage />} /> 
+                        <Route path="/map" component={MapPage} />
+                        <Route path="/hook_form" component={Forms} />             
+                    </div>                    
+                </Suspense>
+            </Router>           
         );
     } 
 }

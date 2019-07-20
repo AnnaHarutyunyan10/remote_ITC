@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Header from '../components/header';
-import FooterTop from '../components/footer-top';
-import FooterMiddle from '../components/footer-middle';
-import FooterButtom from '../components/footer-buttom';
-import AddCard from '.././components/addCard';
-import '.././styles/header.scss'; 
+import Header from '../.././header/header';
+import FooterTop from '../.././footer-top/footer-top';
+import FooterMiddle from '../.././footer-middle/footer-middle';
+import FooterButtom from '../.././footer-buttom/footer-buttom';
+import AddCard from '../.././addCard/addCard';
+import '../../.././styles/header.scss'; 
 
 class PageCardsAdd extends Component {
  
