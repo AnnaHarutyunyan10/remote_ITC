@@ -1,0 +1,19 @@
+.padding {
+    padding: 5% 12%;
+}
+
+.center {
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+    color: #5cdbd3;
+}
+
+.input {
+    outline: none;
+    border: none;
+    width: 11%;
+    padding: 10px;
+}
